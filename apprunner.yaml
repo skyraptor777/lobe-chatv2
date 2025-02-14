@@ -1,0 +1,13 @@
+version: 1.0
+runtime: auto  # App Runner will auto-detect the runtime from the Dockerfile
+run:
+  network:
+    port: 3000  # VERY IMPORTANT: Still specify the correct port!
+  env:
+    # *** SEE ENVIRONMENT VARIABLES SECTION BELOW ***
+    # Example (use Parameter Store for sensitive values):
+    OPENAI_API_KEY: ${/lobechat/openai-api-key}
+    OPENAI_MODEL: gpt-3.5-turbo
+    ACCESS_CODE: ${/lobechat/access-code}
+    PORT: 3000  # Good practice, even though it's in 'network'
+    # Add other environment variables as needed, based on LobeChat's docs.
